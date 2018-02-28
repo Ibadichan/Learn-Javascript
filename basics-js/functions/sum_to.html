@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      // with cicle 'for'
+
+      function sumTo(n) {
+        var sum = 0;
+        for(var i = 1; i <= n; i++) { sum += i }
+        return sum;
+      }
+
+      // with recursion
+
+      function sumTo(n) {
+        return (n != 1) ? n + sumTo(n - 1) : n;
+      }
+
+      // with arithemetic progresion
+
+      function sumTo(n) {
+        return (1 + n) * n / 2;
+      }
+    </script>
+  </body>
+</html>
