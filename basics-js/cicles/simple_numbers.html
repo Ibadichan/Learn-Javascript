@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+
+    nextPrime:
+      for (var i = 2; i <= 10; i++) {
+
+        for (var j = 2; j < i; j++) {
+          if (i % j == 0) continue nextPrime;
+        }
+
+        alert( i );
+      }
+
+    </script>
+  </body>
+</html>
