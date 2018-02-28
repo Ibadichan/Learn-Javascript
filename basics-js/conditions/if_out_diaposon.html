@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      var age = prompt('Введите свой возраст:', 0)
+
+      // version 1
+      if (age < 14 || age > 90) {
+        alert('Добро пожаловать!!!!');
+      } else {
+        alert('Пока');
+      }
+
+      // version 2
+      if (!(age >= 14 && age <= 90)) {
+        alert('Добро пожаловать!!!!');
+      } else {
+        alert('Пока');
+      }
+    </script>
+  </body>
+</html>
