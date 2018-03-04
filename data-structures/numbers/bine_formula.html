@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function fibBinet(n) {
+        var goldenRatio  = (1 + Math.sqrt(5)) / 2;
+        return (Math.pow(goldenRatio, n) / Math.sqrt(5)).toFixed(0);
+      }
+
+      alert(fibBinet(6));
+    </script>
+  </body>
+</html>
