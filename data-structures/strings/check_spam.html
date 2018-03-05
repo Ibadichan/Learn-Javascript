@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function checkSpam(str) {
+        var lowerStr = str.toLowerCase();
+
+        return (lowerStr.indexOf('viagra') > 0 || lowerStr.indexOf('xxx') > 0);
+      }
+
+      alert(checkSpam('buy ViAgRA now'));
+      alert(checkSpam('free xxxxx'));
+      alert(checkSpam("innocent rabbit"));
+    </script>
+  </body>
+</html>
