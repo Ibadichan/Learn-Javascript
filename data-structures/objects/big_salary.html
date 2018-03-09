@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      var salaries = {
+        "Вася": 500,
+        "Петя": 200,
+        "Даша": 250
+      }, person = { salary: 0, name: '' };
+
+      for(var name in salaries) {
+        if (person.salary > salaries[name]) { continue; }
+        person.salary = salaries[name];
+        person.name = name;
+      }
+
+      alert(person.name || 'нет сотрудников');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      function sumSalaries(salaries) {
+        var sum = 0;
+        for(var key in salaries) { sum += salaries[key]; }
+        return sum;
+      }
+
+      var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 250
+      };
+
+      alert(sumSalaries(salaries));
+    </script>
+  </body>
+</html>
