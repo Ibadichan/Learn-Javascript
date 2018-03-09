@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function isEmpty(object) {
+        for(var key in object) { return false; }
+        return true;
+      }
+
+      var schedule = {};
+      alert( isEmpty(schedule) ); // true
+
+      schedule["8:30"] = "подъём";
+      alert( isEmpty(schedule) ); // false
+    </script>
+  </body>
+</html>
