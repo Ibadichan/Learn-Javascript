@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function camelize(str) {
+        var props = str.split('-');
+
+        for(var i = 1; i < props.length; i++) {
+          props[i] = props[i][0].toUpperCase() + props[i].slice(1);
+        }
+
+        return props.join('');
+      }
+
+      alert(camelize("background-color") == 'backgroundColor');
+      alert(camelize("list-style-image") == 'listStyleImage');
+      alert(camelize("-webkit-transition") == 'WebkitTransition');
+    </script>
+  </body>
+</html>

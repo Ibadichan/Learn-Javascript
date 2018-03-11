@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      var arr = [], p = 2, sum = 0;
+
+      for (var i = 2; i < 100; i++) { arr[i] = true; }
+
+      do {
+        for (i = 2 * p; i < 100; i += p) { arr[i] = false; }
+        for (i = p + 1; i < 100; i++) { if (arr[i]) break; }
+
+        p = i;
+
+      } while (p * p < 100);
+
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i]) { sum += i; }
+      }
+
+      alert( sum );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      // function getSums(arr) {
+      //   var partialSums = arr.reduce(function(previous, current, i) {
+      //     previous.push(current + previous[i]);
+      //     return previous;
+      //   }, [0]);
+      //
+      //   partialSums.shift();
+      //   return partialSums;
+      // }
+
+      function getSums(arr) {
+        var result = [];
+
+        var totalSum = arr.reduce(function(sum, item) {
+          result.push(sum);
+          return sum + item;
+        });
+
+        result.push(totalSum);
+        return result;
+      }
+
+      var arr = [1, 2, 3, 4, 5];
+
+      alert(getSums(arr));
+    </script>
+  </body>
+</html>

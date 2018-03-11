@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function addClass(object, className) {
+        var classes = object.className ? object.className.split(' ') : [];
+
+        if(classes.indexOf(className) === -1) {
+          classes.push(className);
+          object.className = classes.join(' ');
+        }
+      }
+
+      var obj = { className: 'open menu' };
+
+      addClass(obj, 'new'); // obj.className='open menu new'
+      addClass(obj, 'open'); // без изменений (класс уже существует)
+      addClass(obj, 'me'); // obj.className='open menu new me'
+      alert( obj.className ); // "open menu new me"
+    </script>
+  </body>
+</html>

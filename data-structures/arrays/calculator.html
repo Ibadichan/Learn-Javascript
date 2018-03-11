@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      var numbers = [];
+      var sum = 0;
+
+      while(true) {
+        var value = prompt('Введите число', 0);
+        if(value == '' || value == null || isNaN(value)) { break; }
+        numbers.push(+value);
+      }
+
+      for(var i = 0; i < numbers.length; i++) { sum += numbers[i]; }
+
+      alert(sum);
+    </script>
+  </body>
+</html>

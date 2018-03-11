@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      // function printList(list) {
+      //   var tmp = list;
+      //
+      //   while (tmp) {
+      //     alert( tmp.value );
+      //     tmp = tmp.next;
+      //   }
+      // }
+
+      // function printList(list) {
+      //   alert('value' + ' : ' + list.value);
+      //   if (list.next) { printList(list.next) }
+      // }
+
+      // function printReverseList(list) {
+      //   if (list.next) { printReverseList(list.next) }
+      //   alert('value' + ' : ' + list.value);
+      // }
+
+      // function printReverseList(list) {
+      //   var tmp = list, arr = [];
+      //
+      //    while (tmp) {
+      //      arr.push(tmp.value);
+      //      tmp = tmp.next;
+      //    }
+      //
+      //    for(var i = arr.length - 1; i >= 0; i--) { alert('value' + ' : ' + arr[i]) }
+      // }
+
+      var list = { value: 1 };
+      list.next = { value: 2 };
+      list.next.next = { value: 3 };
+      list.next.next.next = { value: 4 };
+
+      printReverseList(list);
+    </script>
+  </body>
+</html>
