@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function byAge(a, b) {
+        return a.age - b.age;
+      }
+
+      var vasya = { name: "Вася", age: 23 };
+      var masha = { name: "Маша", age: 18 };
+      var vovochka = { name: "Вовочка", age: 6 };
+
+      var people = [ vasya , masha , vovochka ];
+
+      people.sort(byAge);
+
+      // теперь people: [vovochka, masha, vasya]
+      alert(people[0].age); // 6
+    </script>
+  </body>
+</html>
