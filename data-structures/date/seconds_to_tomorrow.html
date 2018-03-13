@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function getSecondsToTomorrow() {
+        var now = new Date();
+        var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+
+        return Math.round((tomorrow - now) / 1000);
+      }
+
+      alert(getSecondsToTomorrow());
+    </script>
+  </body>
+</html>

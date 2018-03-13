@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function getLastDayOfMonth(year, month) {
+        var date = new Date(year, month + 1, 0);
+        return date.getDate();
+      }
+
+      alert(getLastDayOfMonth(2012, 1)); // 29
+    </script>
+  </body>
+</html>

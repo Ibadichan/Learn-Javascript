@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function formatDate(date) {
+        var options = {
+          year: '2-digit',
+          day: '2-digit',
+          month: '2-digit'
+        }
+        return date.toLocaleString('ru', options);
+      }
+
+      var d = new Date(2000, 0, 30);
+      alert( formatDate(d) );
+    </script>
+  </body>
+</html>

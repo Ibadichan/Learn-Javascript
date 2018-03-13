@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function getDateAgo(date, days) {
+        var dateAgo = new Date(date - days * 86400000);
+        return dateAgo.getDate();
+      }
+
+      var date = new Date(2015, 0, 2);
+
+      alert( getDateAgo(date, 1) ); // 1, (1 января 2015)
+      alert( getDateAgo(date, 2) ); // 31, (31 декабря 2014)
+      alert( getDateAgo(date, 365) ); // 2, (2 января 2014)
+    </script>
+  </body>
+</html>

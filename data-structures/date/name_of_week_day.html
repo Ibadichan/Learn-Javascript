@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function getWeekDay(date) {
+        var weekDays = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
+        return weekDays[date.getDay()];
+      }
+
+      var date = new Date(2012,0,3);  // 3 января 2012
+      alert( getWeekDay(date) );      // Должно вывести 'вт'
+
+
+      // var date = new Date(2014, 0, 3); // 3 января 2014
+      // alert( date.toLocaleString('ru', {weekday: 'short'}) ); // 'Пт'
+    </script>
+  </body>
+</html>
