@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function getSecondsToday() {
+        var date = new Date();
+        return date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds();
+      }
+
+      alert(getSecondsToday());
+    </script>
+  </body>
+</html>

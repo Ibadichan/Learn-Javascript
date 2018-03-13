@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function formatDate(date) {
+        var seconds = Math.round((new Date - date) / 1000);
+
+        if (seconds < 1) {
+          return "только что";
+        } else if (seconds < 60) {
+          return seconds + " сек. назад";
+        } else if (seconds / 60 < 60) {
+          return seconds / 60 + " мин. назад";
+        } else {
+          var options = {
+            year: '2-digit', day: '2-digit', month: '2-digit',
+            hour: '2-digit', minute: '2-digit'
+          }
+          return date.toLocaleString('ru', options).replace(',', '');
+        }
+      }
+
+      alert( formatDate(new Date(new Date - 1)) ); // "только что"
+      alert( formatDate(new Date(new Date - 30 * 1000)) ); // "30 сек. назад"
+      alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5 мин. назад"
+      alert( formatDate(new Date(new Date - 86400 * 1000)) ); // вчерашняя дата в формате "дд.мм.гг чч:мм"
+    </script>
+  </body>
+</html>
