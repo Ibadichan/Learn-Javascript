@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function makeArmy() {
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) {
+          var shooter = (function(i) {
+            return function() { alert(i) }
+          })(i)
+          shooters.push(shooter);
+        }
+
+        return shooters;
+      }
+
+      var army = makeArmy();
+    </script>
+  </body>
+</html>
