@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function makeBuffer() {
+        var store = '';
+
+        return function(param) {
+          if (arguments.length == 0) { return store }
+          store += param;
+        }
+      }
+
+      var buffer = makeBuffer();
+
+      buffer(undefined);
+      buffer('ЛОшадь');
+      buffer(0);
+
+      alert( buffer() );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function makeBuffer() {
+        var store = '';
+
+        function buffer(param) {
+          if (arguments.length == 0) { return store }
+          store += param;
+        }
+
+        buffer.clear = function() { store = '' }
+
+        return buffer;
+      }
+
+      var buffer = makeBuffer();
+
+      buffer("Тест");
+      buffer(" тебя не съест ");
+      alert( buffer() );
+
+      buffer.clear();
+      alert( buffer() ); // ""
+    </script>
+  </body>
+</html>

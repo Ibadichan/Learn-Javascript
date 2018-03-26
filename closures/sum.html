@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function sum(firstNumber) {
+        return function(secondNumber) {
+          return firstNumber + secondNumber;
+        }
+      }
+
+      alert(sum(1)(2));
+      alert(sum(5)(-1));
+    </script>
+  </body>
+</html>
