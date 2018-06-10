@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function Calculator() {
+        this.read = function() {
+          this.firstNumber = +prompt('First number', '');
+          this.secondNumber = +prompt('Second number', '');
+        },
+
+        this.sum = function() {
+          return this.firstNumber + this.secondNumber;
+        },
+
+        this.mul = function() {
+          return this.firstNumber * this.secondNumber;
+        }
+      }
+
+      var calculator = new Calculator();
+      calculator.read();
+
+      alert( "Сумма=" + calculator.sum() );
+      alert( "Произведение=" + calculator.mul() );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      var calculator = {
+        read: function() {
+          this.firstNumber = +prompt('First number', '');
+          this.secondNumber = +prompt('Second number', '');
+        },
+
+        sum: function() {
+          return this.firstNumber + this.secondNumber;
+        },
+
+        mul: function() {
+          return this.firstNumber * this.secondNumber;
+        }
+      };
+
+      calculator.read();
+      alert( calculator.sum() );
+      alert( calculator.mul() );
+    </script>
+  </body>
+</html>

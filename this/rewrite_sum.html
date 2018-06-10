@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function sumArgs() {
+        return [].reduce.call(arguments, function(a, b) {
+          return a + b;
+        });
+      }
+
+      alert( sumArgs(1, 2, 3) ); // 6, аргументы переданы через запятую, без массива
+    </script>
+  </body>
+</html>

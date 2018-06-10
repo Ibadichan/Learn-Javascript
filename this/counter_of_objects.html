@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.lastDate = this.created;
+      }
+
+      Article.count = 0;
+      Article.showStats = function() {
+        alert('Всего: ' + this.count + ',' + 'Последняя: ' + this.lastDate);
+      }
+
+      new Article();
+      new Article();
+
+      Article.showStats(); // Всего: 2, Последняя: (дата)
+
+      new Article();
+
+      Article.showStats(); // Всего: 3, Последняя: (дата)
+    </script>
+  </body>
+</html>

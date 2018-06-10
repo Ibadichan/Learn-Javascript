@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperties(this, {
+          firstName: {
+            get: function() {
+              return this.fullName.split(' ')[0];
+            },
+            set: function(value) {
+              var newFullName = value + ' ' + this.fullName.split(' ')[0];
+              this.fullName = newFullName;
+            }
+          },
+
+          lastName: {
+            get: function() {
+              return this.fullName.split(' ')[1];
+            },
+            set: function(value) {
+              var newFullName = this.fullName.split(' ')[0] + ' ' + value;
+              this.fullName = newFullName;
+            }
+          },
+        });
+      }
+
+      var vasya = new User("Василий Попкин");
+
+      // чтение firstName/lastName
+      alert( vasya.firstName ); // Василий
+      alert( vasya.lastName ); // Попкин
+
+      // запись в lastName
+      vasya.lastName = 'Сидоров';
+
+      alert( vasya.fullName ); // Василий Сидоров
+    </script>
+  </body>
+</html>

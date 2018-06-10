@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function Calculator() {
+        function isNumeric(n) {
+          return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        this.calculate = function(str) {
+          var split = str.split(' '), operation = split[1],
+            firstNumber = split[0], secondNumber = split[2]
+
+          if(!this[operation]) { 
+            return 'Нет такой операции!';
+          } else if(!isNumeric(firstNumber) || !isNumeric(secondNumber)) { 
+            return 'Невалидные числа!';
+          } else {
+            return this[operation](firstNumber, secondNumber);
+          }
+        }
+
+        this.addMethod = function(name, func) {
+          this[name] = func;
+        }
+      }
+
+      var powerCalc = new Calculator;
+      powerCalc.addMethod("+", function(a, b) { return a + b; });
+      powerCalc.addMethod("-", function(a, b) { return a - b; });
+      powerCalc.addMethod("*", function(a, b) { return a * b; });
+      powerCalc.addMethod("/", function(a, b) { return a / b; });
+      powerCalc.addMethod("**", function(a, b) { return Math.pow(a, b); });
+
+      var result = powerCalc.calculate("211 * 3");
+      alert( result ); // 8
+    </script>
+  </body>
+</html>

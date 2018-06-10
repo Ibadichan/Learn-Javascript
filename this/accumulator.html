@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function Accumulator(startingValue) {
+        this.value = startingValue;
+
+        this.read = function() {
+          this.value += +prompt('Number', '');
+        }
+      }
+
+      var accumulator = new Accumulator(1); // начальное значение 1
+      accumulator.read(); // прибавит ввод prompt к текущему значению
+      accumulator.read(); // прибавит ввод prompt к текущему значению
+      alert( accumulator.value ); // выведет текущее значение
+    </script>
+  </body>
+</html>
