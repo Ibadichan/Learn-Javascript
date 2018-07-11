@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      var leader = {
+        name: "Василий Иванович"
+      };
+
+      var soldier = {
+        name: "Петька"
+      };
+
+      // эти объекты ссылаются друг на друга!
+      leader.soldier = soldier;
+      soldier.leader = leader;
+
+      var team = [leader, soldier];
+
+      var jsonTeam = JSON.stringify(team, function(key, value) {
+        if (key == 'soldier' || key == 'leader') {
+          return value.name;
+        };
+        return value;
+      });
+
+      alert(jsonTeam);
+    </script>
+  </body>
+</html>

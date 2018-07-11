@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function printNumbersInterval() {
+        var i = 1;
+
+        var timerId = setTimeout(function run() {
+          console.log(i);
+          i += 1;
+          if (i <= 20) { setTimeout(run, 100) }
+        }, 100);
+      }
+
+      printNumbersInterval();
+    </script>
+  </body>
+</html>
