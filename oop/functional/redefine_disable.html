@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Js-Learn</title>
+</head>
+  <body>
+    <script>
+      function Machine(power) {
+        this._power = power;
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function() {
+          self._enabled = true;
+        };
+
+        this.disable = function() {
+          self._enabled = false;
+        };
+      }
+
+      function Fridge(power) {
+        Machine.apply(this, arguments);
+        var food = [];
+
+        var parentDisable = this.disable;
+
+        this.disable = function() {
+          if (food.length) { throw new Error('ошибка, в холодильнике есть еда') }
+          parentDisable();
+        };
+
+        this.addFood = function() {
+          args = [].slice.call(arguments);
+
+          if (!this._enabled) {
+            alert('Холодильник выключен !');
+          } else if (this._power / 100 <= food.concat(args).length) {
+            alert('Холодильник заполнен !');
+          } else {
+            food = food.concat(args);
+          }
+        };
+
+        this.getFood = function() {
+          return food.slice();
+        };
+
+        this.filterFood = function(func) {
+          return food.filter(func);
+        };
+
+        this.removeFood = function(item) {
+          var index = food.indexOf(item);
+          if (index >= 0) { food.splice(index, 1) }
+        };
+      }
+
+      var fridge = new Fridge(500);
+      fridge.enable();
+      fridge.addFood("кус-кус");
+      fridge.disable(); // ошибка, в холодильнике есть еда
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      function User() {
+        var firstName;
+        var surName;
+
+        this.setFirstName = function(name) {
+          firstName = name;
+        };
+
+        this.setSurname = function(name) {
+          surName = name;
+        };
+
+        this.getFullName = function() {
+          return firstName + ' ' + surName;
+        };
+      }
+
+      var user = new User();
+      user.setFirstName("Петя");
+      user.setSurname("Иванов");
+
+      alert( user.getFullName() ); // Петя Иванов
+    </script>
+  </body>
+</html>

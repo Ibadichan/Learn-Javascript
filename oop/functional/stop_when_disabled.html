@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Js-Learn</title>
+</head>
+  <body>
+    <script>
+      function Machine(power) {
+        this._enabled = false;
+
+        this.enable = function() {
+          this._enabled = true;
+        };
+
+        this.disable = function() {
+          this._enabled = false;
+        };
+      }
+
+      function CoffeeMachine(power) {
+        Machine.apply(this, arguments);
+
+        var waterAmount = 0;
+        var timerId;
+
+        function onReady() {
+          alert('Кофе готово!');
+        }
+
+        this.setWaterAmount = function(amount) {
+          waterAmount = amount;
+        };
+
+        var parentDisable = this.disable.bind(this);
+
+        this.disable = function() {
+          parentDisable();
+          clearTimeout(timerId);
+        };
+
+        this.run = function() {
+          if (this._enabled) {
+            timerId = setTimeout(onReady, 1000);
+          } else {
+            alert('Включи в розетку !!!');
+          }
+        };
+      }
+
+      var coffeeMachine = new CoffeeMachine(10000);
+      coffeeMachine.enable();
+      coffeeMachine.run();
+      coffeeMachine.disable(); // остановит работу, ничего не выведет
+    </script>
+  </body>
+</html>
