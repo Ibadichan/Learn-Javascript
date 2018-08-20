@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      // Good
+
+      function F() {
+        console.log(324)
+      }
+
+      var object = new F();
+      var object2 = new object.constructor();
+
+      /////////
+
+      function F() {
+        console.log(324)
+      }
+
+      F.prototype = {};
+
+      var object = new F();
+      var object2 = new object.constructor();
+      // Bed
+    </script>
+  </body>
+</html>

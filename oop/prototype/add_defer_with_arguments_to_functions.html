@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.defer = function(ms) {
+        var self = this;
+        return function(a, b) {
+          setTimeout(function() {
+            self(a, b);
+          }, ms);
+        }
+      }
+
+      function f(a, b) {
+        alert( a + b );
+      }
+
+      f.defer(1000)(1, 2); // выведет 3 через 1 секунду.
+    </script>
+  </body>
+</html>
