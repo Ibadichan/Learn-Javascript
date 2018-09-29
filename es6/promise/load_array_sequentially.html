@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS-Learn</title>
+  </head>
+  <body>
+    <script>
+      'use strict';
+
+      let urls = [
+        'user.json',
+        'guest.json'
+      ];
+
+      let chain = Promise.resolve();
+
+      let results = [];
+
+      urls.forEach(function(url) {
+        chain = chain
+          .then(() => httpGet(url))
+          .then((result) => {
+            results.push(result);
+          });
+      });
+
+      chain.then(() => {
+        alert(results);
+      });
+    </script>
+  </body>
+</html>
