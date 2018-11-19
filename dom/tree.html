@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+  <ul>
+    <li>Животные
+      <ul>
+        <li>Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+      еще какие!
+    </li>
+    <li>Рыбы
+      <ul>
+        <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    function getNestedListItems(element) {
+      if (element.nodeType == 1) {
+        return element.querySelectorAll('li').length;
+      }
+    }
+
+    function getText(element) {
+      const childNodes = element.childNodes;
+      let innerText = '';
+
+      for (let i = 0; i < childNodes.length; i++) {
+        if (childNodes[i].nodeType != 3) { continue; }
+        innerText += `${childNodes[i].data.replace(/^\s+|\s+$/g, '')} `;
+      }
+
+      return innerText;
+    }
+
+    function tree(listItems) {
+      for (let i = 0; i < listItems.length; i++) {
+        alert(`${getNestedListItems(listItems[i])} : ${getText(listItems[i])}`);
+      }
+    }
+
+    const listItems = document.querySelectorAll('li');
+    tree(listItems);
+  </script>
+</body>
+</html>

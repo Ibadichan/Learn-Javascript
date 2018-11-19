@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+  </head>
+  <body>
+    <script>
+      'use strict';
+
+      (function() {
+        if (Element.prototype.closest) { return; }
+
+        Element.prototype.closest = function(selectors) {
+          let oldParent = this; // initial value
+          let parent, closest;
+
+          while (parent !== document) {
+            parent = oldParent.parentNode;
+            closest = parent.querySelectorAll(selectors);
+
+            for (let i = 0; i < closest.length; i++) {
+              if (oldParent === closest[i]) { return oldParent; }
+            }
+
+            oldParent = parent;
+          }
+
+          return null;
+        }
+      })();
+    </script>
+  </body>
+</html>

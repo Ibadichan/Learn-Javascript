@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+  </head>
+  <body>
+    <ul id="list"></ul>
+
+    <script>
+      const data = {
+        "Рыбы": {
+          "Форель": {},
+          "Щука": {}
+        },
+
+        "Деревья": {
+          "Хвойные": {
+            "Лиственница": {},
+            "Ель": {}
+          },
+          "Цветковые": {
+            "Берёза": {},
+            "Тополь": {}
+          }
+        }
+      };
+
+      const list = document.getElementById('list');
+      createTree(list, data); // создаёт
+
+      // FIRST WAY
+      function createTree(list, data) {
+        let item;
+
+        for (let key in data) {
+          item = createListItem(list, key);
+
+          if (Object.keys(data[key]).length > 0) {
+            createTree(
+              item.appendChild(document.createElement('ul')), data[key]
+            );
+          }
+        }
+      }
+
+      // SECOND WAY
+      function createTree(list, data) {
+        let html = '';
+
+        for (let key in data) {
+          if (Object.keys(data[key]).length > 0) {
+            const nestedUl = document.createElement('ul');
+            createTree(nestedUl, data[key]);
+
+            html += `<li>${key}
+                       <ul>${nestedUl.innerHTML}</ul>
+                     </li>`;
+          } else {
+            html += `<li>${key}</li>`;
+          }
+        }
+
+        list.innerHTML = html;
+      }
+
+      function createListItem(parent, text) {
+        const item = document.createElement('li');
+        const textNode = document.createTextNode(text); // item.textContent = text;
+
+        item.appendChild(textNode);
+        return parent.appendChild(item);
+      }
+    </script>
+  </body>
+</html>

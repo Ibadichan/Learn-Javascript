@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+  </head>
+  <body>
+    <div id="table-holder"></div>
+
+    <script>
+      (function() {
+        var tableHolder = document.getElementById('table-holder');
+
+        var contents = '<thead><th>Имя</th><th>Фамилия</th><th>Отчество</th><th>Возраст</th></thead>';
+        contents += '<tbody>';
+        for (var i = 0; i < 100; i++) {
+          contents += "<tr><td> ... </td><td>Разные</td><td>Данные</td><td>" + ((i + 50) % 30) + "</td></tr>";
+        }
+        contents += '</tbody>';
+
+        tableHolder.innerHTML = '<table id="user-table">' + contents + '</table>';
+      })();
+    </script>
+
+    <script>
+      const tbody = document.querySelector('#user-table tbody');
+      let rows = [];
+
+      for (let i = 0; i < tbody.rows.length; i++) {
+        rows.push({
+          element: tbody.rows[i],
+          value: tbody.rows[i].lastElementChild.innerHTML
+        });
+      }
+
+      rows.sort((a, b) => a.value - b.value);
+
+      for (let i = 0; i < tbody.rows.length; i++) {
+        tbody.appendChild(rows[i].element);
+      }
+    </script>
+  </body>
+</html>

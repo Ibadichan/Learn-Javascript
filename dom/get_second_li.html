@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+  </head>
+  <body>
+    <script>
+      const list = document.createElement('ul');
+
+      for (let i = 1; i <= 100; i++) {
+        let listItem = document.createElement('li');
+        listItem.textContent = i;
+        list.appendChild(listItem);
+      }
+
+      list.children[1].setAttribute('id', 'second');
+
+      document.body.appendChild(list);
+
+      const second = document.getElementById('second');
+    </script>
+  </body>
+</html>

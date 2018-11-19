@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+  </head>
+  <body>
+    <ul id="list"></ul>
+
+    <script>
+      function createListItem(parent, text) {
+        const item = document.createElement('li');
+        const textNode = document.createTextNode(text); // item.textContent = text;
+
+        item.appendChild(textNode);
+        parent.appendChild(item);
+      }
+
+      const list = document.getElementById('list');
+      let text;
+      let i = 0;
+
+      while (text = prompt('Содержимое пункта', `${++i} пункт`)) {
+        createListItem(list, text);
+      }
+    </script>
+  </body>
+</html>

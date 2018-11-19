@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+  </head>
+  <body>
+    <script>
+      const buttonStyles = {
+        '-moz-border-radius': '8px',
+        '-webkit-border-radius': '8px',
+        'border-radius': '8px',
+        'border': '2px groove green',
+        'display': 'block',
+        'height': '30px',
+        'line-height': '30px',
+        'width': '100px',
+        'text-decoration': 'none',
+        'text-align': 'center',
+        'color': 'red',
+        'font-weight': 'bold'
+      }
+
+      let cssText = '';
+
+      for (let key in buttonStyles) {
+        cssText += `${key}: ${buttonStyles[key]};`;
+      }
+
+      const link = document.createElement('a');
+      link.textContent = 'Нажми меня';
+      link.href = '/';
+      link.className = 'button';
+      link.style.cssText = cssText;
+
+      document.body.appendChild(link);
+    </script>
+  </body>
+</html>
