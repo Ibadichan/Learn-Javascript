@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .tree-list-closed { display: none; }
+    .tree li span { cursor: pointer;}
+    .tree li span:hover { font-weight: 700; }
+  </style>
+</head>
+
+<body>
+
+  <ul class="tree">
+    <li><span>Животные</span>
+      <ul>
+        <li><span>Млекопитающие</span>
+          <ul>
+            <li><span>Коровы</span></li>
+            <li><span>Ослы</span></li>
+            <li><span>Собаки</span></li>
+            <li><span>Тигры</span></li>
+          </ul>
+        </li>
+        <li><span>Другие</span>
+          <ul>
+            <li><span>Змеи</span></li>
+            <li><span>Птицы</span></li>
+            <li><span>Ящерицы</span></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span>Рыбы</span>
+      <ul>
+        <li><span>Аквариумные</span>
+          <ul>
+            <li><span>Гуппи</span></li>
+            <li><span>Скалярии</span></li>
+          </ul>
+
+        </li>
+        <li><span>Морские</span>
+          <ul>
+            <li><span>Морская форель</span></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    const tree = document.querySelector('.tree');
+
+    // hide lists
+    tree.querySelectorAll('ul').forEach(list => {
+      list.classList.add('tree-list-closed');
+    });
+
+    tree.addEventListener('click', function(event) {
+      const target = event.target;
+      const targetParent = target.parentElement;
+      const targetParentList = targetParent.querySelector('ul');
+
+      if (
+        target.tagName == 'SPAN' &&
+        targetParent.tagName == 'LI' &&
+        targetParentList
+      ) {
+        targetParentList.classList.toggle('tree-list-closed');
+      }
+    });
+  </script>
+</body>
+</html>

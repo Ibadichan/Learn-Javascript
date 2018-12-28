@@ -1,0 +1,139 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: white url('./candy.jpg') top center repeat;
+}
+
+.carousel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 480px;
+  border: 1px solid #cccccc;
+  border-radius: 15px;
+  background-color: lightgray;
+  transform: translate(-50%, -50%);
+}
+
+.carousel-prev,
+.carousel-next {
+  position: relative;
+  width: 44px;
+  padding: 0;
+  font: inherit;
+  border: 0;
+  background-color: lightgray;
+  cursor: pointer;
+  outline: none;
+}
+
+.carousel-prev {
+  border-radius: 15px 0 0 15px;
+}
+
+.carousel-next {
+  border-radius: 0 15px 15px 0;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover,
+.carousel-prev:focus,
+.carousel-next:focus {
+  background-color: #b1afaf;
+}
+
+.carousel-prev:active,
+.carousel-next:active {
+  background-color: gray;
+}
+
+.carousel-prev:active::before,
+.carousel-next:active::before {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-prev::before,
+.carousel-next::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  border: 5px solid white;
+  border-radius: 5px;
+}
+
+.carousel-prev::before {
+  border-top: 0;
+  border-right: 0;
+  transform: translate(-50%, -50%) translateX(5px) rotate(45deg);
+}
+
+.carousel-next::before {
+  border-left: 0;
+  border-bottom: 0;
+  transform: translate(-50%, -50%) translateX(-5px) rotate(45deg);
+}
+
+.carousel-list-wrapper {
+  width: 390px;
+  overflow: hidden;
+}
+
+.carousel-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateX(0);
+  transition: transform 0.5s;
+}
+
+.carousel-list li {
+  flex-shrink: 0;
+  width: 130px;
+  height: 130px;
+}
+
+@media only screen and (max-width: 500px) {
+  .carousel {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .carousel-list li {
+    transform: rotate(-90deg);
+  }
+}

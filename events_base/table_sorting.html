@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    th {
+      cursor: pointer;
+    }
+
+    th:hover {
+      background: yellow;
+    }
+  </style>
+</head>
+
+<body>
+
+  <table id="grid">
+    <thead>
+      <tr>
+        <th data-type="number">Возраст</th>
+        <th data-type="string">Имя</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>5</td>
+        <td>Вася</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Петя</td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Женя</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Маша</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Илья</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const table = document.getElementById('grid');
+
+    table.addEventListener('click', function(event) {
+      const target = event.target;
+
+      if (target.tagName != 'TH' || !target.dataset.type) { return; }
+
+      const cellIndex = target.cellIndex;
+      const rows = Array.prototype.slice.call(table.rows, 1);
+      const sortedCells = [];
+
+      rows.forEach(row => {
+        sortedCells.push(row.cells[cellIndex].textContent);
+      });
+
+      sortedCells.sort((a, b) => a - b);
+
+      sortedCells.forEach((cell, index) => {
+        rows[index].cells[cellIndex].textContent = cell;
+      });
+    });
+  </script>
+</body>
+</html>

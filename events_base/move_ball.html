@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      #field {
+        width: 200px;
+        height: 150px;
+        border: 10px groove black;
+        background-color: #00FF00;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      #ball {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -20px;
+        margin-top: -20px;
+        transition: top 0.5s linear, left 0.5s linear;
+      }
+    </style>
+  </head>
+  <body style="height:2000px">
+    Кликните на любое место поля, чтобы мяч перелетел туда.
+    <br> Мяч никогда не вылетит за границы поля.
+
+    <div id="field">
+      <img src="https://js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+
+    <script>
+      const field = document.getElementById('field');
+      const ball = document.getElementById('ball');
+
+      field.addEventListener('click', function(event) {
+        const coords = new (function() {
+          const ballHalfWidth = ball.offsetWidth / 2;
+          const ballHalfHeight = ball.offsetHeight / 2;
+
+          this.top = event.clientY - field.offsetTop - field.clientTop;
+          this.left = event.clientX - field.offsetLeft - field.clientLeft;
+
+          if (this.left <= ballHalfWidth) {
+            this.left = ballHalfWidth;
+          } if (this.top <= ballHalfHeight) {
+            this.top = ballHalfHeight;
+          } if (this.left + ballHalfWidth >= field.clientWidth) {
+            this.left = field.clientWidth - ballHalfWidth;
+          } if (this.top + ballHalfHeight >= field.clientHeight) {
+            this.top = field.clientHeight - ballHalfHeight;
+          }
+        })();
+
+        ball.style.top = `${coords.top}px`;
+        ball.style.left = `${coords.left}px`;
+      });
+    </script>
+  </body>
+</html>

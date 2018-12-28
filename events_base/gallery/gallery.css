@@ -1,0 +1,84 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: gainsboro;
+}
+
+.gallery {
+  width: 100%;
+}
+
+.gallery-big-image {
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.gallery-big-image img {
+  width: 100%;
+}
+
+.gallery-list {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery-list-item {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.gallery-list-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-list-item img {
+  border-radius: 5px;
+}
+
+@media only screen and (min-width: 600px) {
+  .gallery {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    transform: translate(-50%, -50%);
+  }
+}

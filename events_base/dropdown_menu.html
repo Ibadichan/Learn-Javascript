@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Learn JS</title>
+    <style>
+      .candy { margin-bottom: 0; cursor: pointer; }
+      .candy::before { content: '▶'; }
+      .candy-opened::before { content: '▼'; }
+      .candy-list { display: none; margin: 0; }
+      .candy-list-opened { display: block; }
+    </style>
+  </head>
+  <body>
+    <p id="candy" class="candy">&nbsp;Сладости (нажми меня)!</p>
+    <ul id="candy-list" class="candy-list">
+      <li>Торт</li>
+      <li>Пончик</li>
+      <li>Пирожное</li>
+    </ul>
+
+    <script>
+      const candy = document.getElementById('candy');
+      const candyList = document.getElementById('candy-list');
+
+      candy.addEventListener('click', function () {
+        candyList.classList.toggle('candy-list-opened');
+        candy.classList.toggle('candy-opened');
+      });
+    </script>
+  </body>
+</html>

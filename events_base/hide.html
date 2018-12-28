@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Learn JS</title>
+  </head>
+  <body>
+    <button type="button" id="hide-btn">Click me please!</button>
+
+    <script>
+      const button = document.getElementById('hide-btn');
+
+      button.addEventListener('click', function () {
+        this.hidden = true;
+      });
+    </script>
+  </body>
+</html>
